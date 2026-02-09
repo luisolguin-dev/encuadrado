@@ -23,10 +23,14 @@ model User {
 }
 
 model Order {
-  id      String  @id @default(uuid())
-  type    String // "CAFE" o "TE"
-  comment String?
-  status  String  @default("CREATED") // CREATED, ASSIGNED, IN_PROGRESS, COMPLETED, CANCELLED
+  id            String  @id @default(uuid())
+  type          String // "CAFE" o "TE"
+  comment       String?
+  address       String
+  recipientName String?
+  price         Int     @default(0) // Guardaremos el precio en Pesos
+  eta           Int     @default(30) // Minutos estimados (Random)
+  status        String  @default("CREATED") // CREATED, ASSIGNED, IN_PROGRESS, COMPLETED, CANCELLED
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
