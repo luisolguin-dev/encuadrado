@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// Data models 
+
+model User {
+  id       String  @id @default(uuid())
+  email    String  @unique
+  password String
+  role     String // "SOLICITOR" o "PROVIDER"
+  name     String?
+
+  // Relaciones: Un usuario puede tener pedidos que hizo o pedidos que entregó
+  ordersRequested Order[] @relation("SolicitorOrders")
+  ordersDelivered Order[] @relation("ProviderOrders")
+}
+
+model Order {
+  id      String  @id @default(uuid())
+  type    String // "CAFE" o "TE"
+  comment String?
+  status  String  @default("CREATED") // CREATED, ASSIGNED, IN_PROGRESS, COMPLETED, CANCELLED
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relación con quien pide (Solicitor)
+  solicitorId String
+  solicitor   User   @relation("SolicitorOrders", fields: [solicitorId], references: [id])
+
+  // Relación con quien entrega (Provider) - Es opcional porque al inicio nadie lo ha tomado
+  providerId String?
+  provider   User?   @relation("ProviderOrders", fields: [providerId], references: [id])
+}
