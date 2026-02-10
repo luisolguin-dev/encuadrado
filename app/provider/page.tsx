@@ -79,10 +79,9 @@ export default async function ProviderPage() {
           </div>
         </section>
 
-        {/* COLUMNA 2: MIS ENTREGAS */}
         <section>
           <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-            🎒 En mi Mochila{" "}
+            Aceptadas{" "}
             <span className="text-xs bg-gray-700 px-2 py-1 rounded-full">
               {myOrders.length}
             </span>
@@ -108,7 +107,6 @@ export default async function ProviderPage() {
                   </p>
                 </div>
 
-                {/* BOTONES DE ESTADO */}
                 <div className="flex gap-2">
                   {order.status === "ASSIGNED" && (
                     <form action={updateStatus} className="flex-1">

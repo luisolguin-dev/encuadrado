@@ -5,7 +5,7 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-gray-100 font-sans">
       <div className="bg-white p-8 rounded-lg shadow-md w-96 text-center">
         <h1 className="text-3xl font-bold mb-2 text-blue-600">
-          ☕ CoffeeBoost
+          ☕ EnergyBoost
         </h1>
         <p className="text-gray-500 mb-6">Envía energía a tus amigos</p>
 

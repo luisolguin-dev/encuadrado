@@ -27,7 +27,7 @@ export default async function SolicitorPage() {
     <div className="min-h-screen bg-gray-50 p-6 font-sans text-gray-800">
       <header className="max-w-md mx-auto flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-2xl font-bold text-blue-800">☕ CoffeeBoost</h1>
+          <h1 className="text-2xl font-bold text-blue-800">☕ EnergyBoost</h1>
           <p className="text-sm text-gray-500">Envía energía a tus amigos</p>
         </div>
         <form action={logout}>
