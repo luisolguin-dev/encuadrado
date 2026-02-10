@@ -28,7 +28,7 @@ model Order {
   comment       String?
   address       String
   recipientName String?
-  price         Int     @default(0) // Guardaremos el precio en Pesos
+  price         Int     @default(0)
   eta           Int     @default(30) // Minutos estimados (Random)
   status        String  @default("CREATED") // CREATED, ASSIGNED, IN_PROGRESS, COMPLETED, CANCELLED
 

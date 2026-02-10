@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ☕ CoffeeBoost MVP
 
-## Getting Started
+¡Hola! 
 
-First, run the development server:
+Esta es la solución al desafío técnico de Encuadrado. Básicamente, es una plataforma para enviar "energía" (café o té). El objetivo era crear un flujo rápido, sin fricción y validando la hipótesis de retención desde el día uno.
 
-```bash
+## 🚀 El Stack
+Fui por lo seguro y robusto para iterar rápido:
+* **Framework:** Next.js
+* **Base de Datos:** PostgreSQL (alojada en Supabase)
+* **ORM:** Prisma
+* **Estilos:** Tailwind CSS
+
+---
+
+## ¿Cómo correrlo en tu local?
+
+### 1. Clona el repo
+
+git clone [https://github.com/luisolguin-dev/encuadrado.git](https://github.com/luisolguin-dev/encuadrado.git)
+
+cd encuadrado
+
+2. Instala las dependencias
+
+npm install
+
+3. Configura las variables de entorno
+Crea un archivo llamado .env en la raíz del proyecto. Necesitas pegar ahí la credencial de la base de datos (la envié por email). Debería verse algo así:
+
+DATABASE_URL="postgresql://postgres.ahmakjwebdtqxmuxoruy:[password]@aws-0-us-west-2.pooler.supabase.com:6543/postgres?pgbouncer=true"
+
+DIRECT_URL="postgresql://postgres.ahmakjwebdtqxmuxoruy:[password]@aws-0-us-west-2.pooler.supabase.com:5432/postgres"
+
+4. Conecta Prisma
+
+npx prisma generate
+
+5. Correr la app
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre http://localhost:3000 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+📱 ¿Cómo probar la App?
+El MVP simula los dos roles clave. En el Home verás dos botones grandes para entrar como quieras (sin login complejo, usamos Cookies para simular la sesión y hacerlo rápido):
 
-## Learn More
+Solicitor (Quien pide)
+Ruta: /solicitor
 
-To learn more about Next.js, take a look at the following resources:
+Lo que puedes hacer:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Pedir un café o té.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Feature Clave: "Repetir Pedido". Si ya pediste antes, haz click en el botón "Repetir" del historial. Es vital para nuestros "Power Users".
 
-## Deploy on Vercel
+Ver en tiempo real (recargando) si tu pedido fue tomado.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Provider (Quien entrega)
+Ruta: /provider
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Lo que puedes hacer:
+
+Ver el "Marketplace" de pedidos disponibles (First-come, first-served).
+
+Tomar un pedido (desaparece de la lista pública y se asigna a ti).
+
+Marcar como entregado.
+
+
+¡Cualquier duda me avisan! ✌️
