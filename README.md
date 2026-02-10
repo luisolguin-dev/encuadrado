@@ -1,4 +1,4 @@
-# ☕ CoffeeBoost MVP
+# ☕ EnergyBoost MVP
 
 ¡Hola! 
 
